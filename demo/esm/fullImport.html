@@ -8,12 +8,12 @@
 </head>
 <body>
   <div id="app"></div>
+  <link rel="stylesheet" href="../../dist/assets/entry.55108e6a.css">
   <script type="module">
     import {createApp} from "vue/dist/vue.esm-bundler.js"
-    import FishDesign , {SFCButton,JSXButton}from "../../dist/fish-design.mjs"
+    import FishDesign , {FButton}from "../../dist/fish-design.mjs"
     createApp({template:`
-      <SFCButton/>
-      <JSXButton/>`}).use(FishDesign).mount('#app')
+      <FButton color="blue" icon="search">测试</FButton>`}).use(FishDesign).mount('#app')
   </script>
 </body>
 </html>
