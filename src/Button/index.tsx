@@ -12,13 +12,24 @@ export type IColor =
   | "purple"
   | "pink";
 
-
 export const props = {
   color: {
     type: String as PropType<IColor>,
     default: "blue",
   },
-  icon: String
+  plain: {
+    type: Boolean,
+    default: false,
+  },
+  round: {
+    type: Boolean,
+    default: false,
+  },
+  circle: {
+    type: Boolean,
+    default: false,
+  },
+  icon: String,
 };
 
 export default defineComponent({
@@ -31,16 +42,17 @@ export default defineComponent({
     py-2 
     px-4 
     font-semibold 
-    rounded-lg 
+    rounded-${props.round ? "full" : "lg"} 
     shadow-md 
-    text-white 
-    bg-${props.color}-500 
-    hover:bg-${props.color}-700 
+    bg-${props.color}-${props.plain ? 100 : 500}
+    hover:bg-${props.color}-${props.plain ? 500 : 700}
+    text-${props.plain ? props.color + "-500" : "white"}
+    hover:text-white
     border-none 
     cursor-pointer 
     `}
       >
-        {props.icon !== "" ? <i class={`i-ic-baseline-${props.icon} p-3`}></i> : ''}
+        {props.icon && <i class={`i-ic-baseline-${props.icon} p-3`}></i>}
         {slots.default ? slots.default() : ""}
       </button>
     );

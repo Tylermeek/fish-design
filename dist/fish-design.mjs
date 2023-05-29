@@ -10,7 +10,7 @@ const props = {
 const FButton = defineComponent({
   name: "FButton",
   props,
-  setup(props2, {
+  setup(props, {
     slots
   }) {
     return () => createVNode("button", {
@@ -21,13 +21,14 @@ const FButton = defineComponent({
     rounded-lg 
     shadow-md 
     text-white 
-    bg-${props2.color}-500 
-    hover:bg-${props2.color}-700 
+    bg-${props.color}-500 
+    hover:bg-${props.color}-700 
+    text-${props.plain ? props.color : white}
     border-none 
     cursor-pointer 
     `
-    }, [props2.icon !== "" ? createVNode("i", {
-      "class": `i-ic-baseline-${props2.icon} p-3`
+    }, [props.icon !== "" ? createVNode("i", {
+      "class": `i-ic-baseline-${props.icon} p-3`
     }, null) : "", slots.default ? slots.default() : ""]);
   }
 });

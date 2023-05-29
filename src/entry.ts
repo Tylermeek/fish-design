@@ -1,5 +1,5 @@
 import { App } from "vue";
-import FButton from "./Button/index.tsx"
+import FButton from "./Button/index.jsx"
 
 // 导出单独组件
 export{FButton}

@@ -1,6 +1,6 @@
 import { createApp } from "vue/dist/vue.esm-bundler.js";
 import FishDesign from "./entry"
-import FButton from "./Button/index.tsx";
+import FButton from "./Button";
 
 createApp({
   template:`

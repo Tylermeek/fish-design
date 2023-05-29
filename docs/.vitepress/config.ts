@@ -11,12 +11,7 @@ const sidebar = {
 const config = {
   themeConfig:{
     sidebar
-  }
-}
-
-export default config
-
-module.exports = {
+  },
   markdown:{
     config: (md) =>{
        // 添加DemoBlock插槽
@@ -25,3 +20,7 @@ module.exports = {
     }
   }
 }
+
+
+export default config
+

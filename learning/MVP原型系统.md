@@ -67,7 +67,7 @@ export default defineConfig({
     rollupOptions,
     minify:false,
     lib: {
-      entry: "./scr/entry.ts",
+      entry: "./src/entry.ts",
       name: "FishDesign",
       fileName: "fish-design",
       // 导出模块格式

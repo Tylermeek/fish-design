@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@algolia/client-search': 4.9.1
   '@iconify-json/ic': 1.1.4
+  '@types/node': ^20.2.5
   '@vitejs/plugin-vue': 3.0.3
   '@vitejs/plugin-vue-jsx': 2.0.0
   unocss: 0.44.5
@@ -20,6 +21,7 @@ dependencies:
   vue: 3.2.37
 
 devDependencies:
+  '@types/node': 20.2.5
   '@vitejs/plugin-vue': 3.0.3_vite@3.0.7+vue@3.2.37
   '@vitejs/plugin-vue-jsx': 2.0.0_vite@3.0.7+vue@3.2.37
   vitepress-theme-demoblock: 1.4.2
@@ -664,6 +666,10 @@ packages:
 
   /@types/mdurl/1.0.2:
     resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
+    dev: true
+
+  /@types/node/20.2.5:
+    resolution: {integrity: sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==}
     dev: true
 
   /@unocss/cli/0.44.5:

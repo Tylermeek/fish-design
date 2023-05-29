@@ -23,6 +23,7 @@
     "vue": "3.2.37"
   },
   "devDependencies": {
+    "@types/node": "^20.2.5",
     "@vitejs/plugin-vue": "3.0.3",
     "@vitejs/plugin-vue-jsx": "2.0.0",
     "vitepress-theme-demoblock": "1.4.2"
