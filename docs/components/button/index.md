@@ -63,20 +63,23 @@
  </div>
 </template>
 ```
+:::
 
 ## 禁用按钮
 
 禁用状态的按钮
 
-:::demo 设置 disable 属性即可
+:::demo 设置 disabled 属性即可
 
 ```vue
 <template>
  <div class="flex flex-row">
-  <FButton icon="edit" plain></FButton>
-  <FButton icon="delete" plain></FButton>
-  <FButton icon="share" plain></FButton>
-  <FButton round plain icon="search">搜索</FButton>
+  <FButton color="blue" disabled>主要按钮</FButton>
+  <FButton color="green" disabled>绿色按钮</FButton>
+  <FButton color="gray" disabled>灰色按钮</FButton>
+  <FButton color="yellow" disabled>黄色按钮</FButton>
+  <FButton color="red" disabled>红色按钮</FButton>
  </div>
 </template>
 ```
+:::

@@ -39,7 +39,7 @@ export const props = {
     type: Boolean,
     default: false,
   },
-  disable: {
+  disabled: {
     type: Boolean,
     default: false,
   },
@@ -62,21 +62,22 @@ export default defineComponent({
   props,
   setup(props, { slots }) {
     return () =>
-      props.link ? (
+      !props.link ? (
         <button
           class={`    
     ${getSize(props.size)} 
     font-semibold 
     rounded-${props.round ? "full" : "lg"} 
     shadow-md 
-    bg-${props.color}-${props.plain ? 100 : 500}
+    bg-${props.color}-${props.plain ? 100 : props.disabled ? 300 : 500}
     hover:bg-${props.color}-${props.plain ? 500 : 700}
     text-${props.plain ? props.color + "-500" : "white"}
     hover:text-white
     border-none
-    ${props.disable && 'disabled'} 
-    cursor-pointer 
+    cursor-${props.disabled ? 'not-allowed' :'pointer'} 
     `}
+    disabled={props.disabled}
+
         >
           {props.icon && <i class={`i-ic-baseline-${props.icon} p-3`}></i>}
           {slots.default ? slots.default() : ""}
