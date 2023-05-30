@@ -1,5 +1,6 @@
 import { defineComponent, PropType, toRefs } from "vue";
 import "uno.css";
+import Icon from "./components/icon";
 
 export type PColor =
   | "black"
@@ -35,10 +36,6 @@ export const props = {
     type: String as PropType<PSize>,
     default: "default",
   },
-  link: {
-    type: Boolean,
-    default: false,
-  },
   disabled: {
     type: Boolean,
     default: false,
@@ -46,46 +43,56 @@ export const props = {
   icon: String,
 };
 
-const getSize = (size: PSize): string => {
+const size = (size: PSize): string => {
   switch (size) {
     case "small":
       return "py-1 px-2";
     case "large":
-      return "py-4 px-6";
+      return "py-3 px-4";
     default:
-      return "py-2 px-4";
+      return "py-2 px-3";
   }
 };
+
+const bgColor = ({
+  color,
+  plain,
+  disabled,
+}: {
+  color: string;
+  plain: boolean;
+  disabled: boolean;
+}): string => `bg-${color}-${plain ? 100 : disabled ? 300 : 500}`;
+
+const round = (round: boolean): string => `rounded-${round ? "full" : "lg"}`;
+const hoverBg = ({ color, plain }: { color: string; plain: boolean }): string =>
+  `hover:bg-${color}-${plain ? 500 : 700}`;
+const cursor = (disabled: boolean) =>
+  `cursor-${disabled ? "not-allowed" : "pointer"}`;
 
 export default defineComponent({
   name: "FButton",
   props,
   setup(props, { slots }) {
-    return () =>
-      !props.link ? (
-        <button
-          class={`    
-    ${getSize(props.size)} 
+    return () => (
+      <button
+        class={`    
+    ${size(props.size)} 
+    ${bgColor(props)}
+    ${hoverBg(props)}
+    ${round(props.round)}
+    ${cursor(props.disabled)}
     font-semibold 
-    rounded-${props.round ? "full" : "lg"} 
     shadow-md 
-    bg-${props.color}-${props.plain ? 100 : props.disabled ? 300 : 500}
-    hover:bg-${props.color}-${props.plain ? 500 : 700}
     text-${props.plain ? props.color + "-500" : "white"}
     hover:text-white
     border-none
-    cursor-${props.disabled ? 'not-allowed' :'pointer'} 
     `}
-    disabled={props.disabled}
-
-        >
-          {props.icon && <i class={`i-ic-baseline-${props.icon} p-3`}></i>}
-          {slots.default ? slots.default() : ""}
-        </button>
-      ) : (
-        <link
-          class={`text-${props.color}-500  hover:text-${props.color}-300 cursor-pointer `}
-        ></link>
-      );
+        disabled={props.disabled}
+      >
+        {props.icon && <Icon icon={props.icon}></Icon>}
+        {slots.default ? slots.default() : ""}
+      </button>
+    );
   },
 });

@@ -26,7 +26,7 @@ const icons = [
 
 const rouned = ["full", "lg"];
 
-const size = ["py-1", "px-2", "py-4", "px-6", "py-2", "px-4"];
+const size = ["py-1", "px-2", "py-3", "px-4", "py-2", "px-3"];
 
 const cursorType = ["pointer", "not-allowed"];
 
