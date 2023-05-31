@@ -47,6 +47,7 @@
     "happy-dom": "6.0.4",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
+    "terser": "5.4.0",
     "vitepress-theme-demoblock": "1.4.2",
     "vitest": "0.21.1"
   }
