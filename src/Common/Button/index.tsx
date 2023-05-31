@@ -71,7 +71,7 @@ const cursor = (disabled: boolean) =>
   `cursor-${disabled ? "not-allowed" : "pointer"}`;
 
 export default defineComponent({
-  name: "FButton",
+  name: "Button",
   props,
   setup(props, { slots }) {
     return () => (

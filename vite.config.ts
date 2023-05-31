@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from "vite";
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -35,4 +37,15 @@ export default defineConfig({
       formats: ["es", "umd","iife"],
     },
   },
+  // 单元测试配置
+  test:{
+    // enable jest-like global test APIs
+    globals: true,
+    // 启用模拟dom，需要安装前置happy-dom
+    environment:'happy-dom',
+    // 支持tsx、jsx文件
+    transformMode:{
+      web:[/.[jt]sx$/]
+    }
+  }
 })
