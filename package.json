@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint --fix --ext .ts,.vue src",
@@ -41,6 +42,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.14.1",
     "happy-dom": "6.0.4",
+    "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "vitepress-theme-demoblock": "1.4.2",
     "vitest": "0.21.1"
