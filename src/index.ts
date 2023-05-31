@@ -1,9 +1,9 @@
 import { createApp } from "vue/dist/vue.esm-bundler.js";
-import FishDesign from "./entry"
+import FishDesign from "./entry";
 import Button from "./Common/index";
 
 createApp({
-  template:`
+  template: `
   <div>
   <Button color="blue" icon="search">蓝色按钮</Button>
   <Button color="green">绿色按钮</Button>
@@ -11,5 +11,7 @@ createApp({
   <Button color="yellow">黄色按钮</Button>
   <Button color="red">红色按钮</Button>
   </div>
-  `
-}).use(FishDesign).mount("#app");
+  `,
+})
+  .use(FishDesign)
+  .mount("#app");

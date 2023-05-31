@@ -1,3 +1,3 @@
 import Button from "./Button/index";
 
-export default Button
+export default Button;
