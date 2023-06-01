@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches:[ main ]
+  pull_request:
+    branches:[ main ]
+jobs:
+  Lint:
+    # 执行Lint任务
+  UnitTest
+    # 进行单元测试
+
+    # 执行任务的环境
+    runs-on: ubuntu-latest
+    # 具体执行步骤
+    steps:
+    - uses: actions/checkout@v2
+    - uses: pnpm/actions-setip@v2.1.0
+      whit:
+        version: 7.2.1
+    - name: Install modules
+      run: pnpm install
+    - name: Run Test
+      run: pnpm run test:run

@@ -9,9 +9,9 @@
 <body>
   <div id="app"></div>
   <link rel="stylesheet" href="../../dist/assets/entry.e26ea4aa.css">
+  <script src="../../dist/fish-design.iife.js"></script>
   <script type="module">
     import {createApp} from "vue/dist/vue.esm-bundler.js"
-    import FishDesign , {Button}from "../../dist/fish-design.mjs"
     createApp({template:`
       <Button color="red" icon="search">测试</Button>`}).use(FishDesign).mount('#app')
   </script>
