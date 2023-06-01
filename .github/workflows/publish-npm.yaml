@@ -1,0 +1,31 @@
+name: Publish @tyler_the_duck/fish-design To Npm
+
+on:
+  push:
+    branches:
+    - publish-fish-design-vite
+
+jobs:
+  publish:
+    runs-on: unbuntu-latest
+
+    name: "publish npm"
+
+    environment: npm
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 6.0.2
+    - name: Install modules
+      run: pnpm install
+    - name: Build
+      run: npm run build
+    - name: "Publish to the npm registry"
+      uses: primer/pubish@3.0.0
+      env: 
+        GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      with:
+        default_branch: "publish"
