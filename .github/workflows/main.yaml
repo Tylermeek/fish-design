@@ -11,7 +11,7 @@ jobs:
     # 执行Lint任务
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: pnpm/action-setup@v2
       with:
         version: 6.0.2
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     # 具体执行步骤
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses:  pnpm/action-setup@v2
       with:
         version: 6.0.2
