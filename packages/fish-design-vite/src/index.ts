@@ -1,5 +1,6 @@
 import { createApp } from "vue/dist/vue.esm-bundler.js";
 import FishDesign from "./entry";
+// eslint-disable-next-line no-unused-vars
 import Button from "./Common/index";
 
 createApp({
