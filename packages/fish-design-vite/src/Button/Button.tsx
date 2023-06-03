@@ -1,5 +1,4 @@
 import { defineComponent, PropType } from "vue";
-import "uno.css";
 import Icon from "./components/icon";
 
 export type PColor =

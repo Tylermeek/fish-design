@@ -12,7 +12,8 @@
     "fish-design-vite": "workspace:0.1.0",
     "vitepress": "0.22.4",
     "vite": "3.0.7",
-    "vue": "3.2.37"
+    "vue": "3.2.37",
+    "unocss": "0.44.5"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",

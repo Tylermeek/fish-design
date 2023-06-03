@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import { UserConfig, defineConfig } from "vite";
+import { UserConfig, defineConfig, Plugin } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import Unocss from "./config/unocss";
@@ -20,7 +20,7 @@ export const config = {
     vueJsx({
       // options are passed on to @vue/babel-plugin-jsx
     }),
-    Unocss(),
+    Unocss() as Plugin[],
   ],
 
   // 添加库模式配置
