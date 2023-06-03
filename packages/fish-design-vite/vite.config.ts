@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from "vite";
+import { UserConfig, defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import Unocss from "./config/unocss";
@@ -13,7 +13,7 @@ const rollupOptions = {
   },
 };
 
-export default defineConfig({
+export const config = {
   plugins: [
     vue(),
     // 添加JSX插件
@@ -37,6 +37,7 @@ export default defineConfig({
       // 导出模块格式
       formats: ["es", "umd", "iife"],
     },
+    outDir: "./dist",
   },
   // 单元测试配置
   test: {
@@ -49,4 +50,6 @@ export default defineConfig({
       web: [/.[jt]sx$/],
     },
   },
-});
+};
+
+export default defineConfig(config as UserConfig);

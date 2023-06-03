@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全量引入测试</title>
+</head>
+<body>
+    <h1>Demo IFFE OnDemand</h1>
+<div id="app"></div>
+<link rel="stylesheet" href="../dist/Button/assets/index.e26ea4aa.css">
+<script src="../node_modules/vue/dist/vue.global.js"></script>
+<script src="../dist/Button/index.iife.js"></script>
+<script>
+const { createApp } = Vue
+console.log('vue', Vue)
+console.log('fish design', Button)
+createApp({
+ template: `
+  <div style="margin-bottom:20px;">
+  <FishButton color="blue">主要按钮</FishButton>
+  <FishButton color="green">绿色按钮</FishButton>
+  <FishButton color="gray">灰色按钮</FishButton>
+  <FishButton color="yellow">黄色按钮</FishButton>
+  <FishButton color="red">红色按钮</FishButton>
+  </div>
+  <div style="margin-bottom:20px;">
+  <FishButton color="blue" plain>朴素按钮</FishButton>
+  <FishButton color="green" plain>绿色按钮</FishButton>
+  <FishButton color="gray" plain>灰色按钮</FishButton>
+  <FishButton color="yellow" plain>黄色按钮</FishButton>
+  <FishButton color="red" plain>红色按钮</FishButton>
+  </div>
+  <div style="margin-bottom:20px;">
+  <FishButton size="small" plain>小按钮</FishButton>
+  <FishButton size="medium" plain>中按钮</FishButton>
+  <FishButton size="large" plain>大按钮</FishButton>
+  </div>
+  <div style="margin-bottom:20px;">
+  <FishButton color="blue" round plain icon="search">搜索按钮</FishButton>
+  <FishButton color="green" round plain icon="edit">编辑按钮</FishButton>
+  <FishButton color="gray" round plain icon="check">成功按钮</FishButton>
+  <FishButton color="yellow" round plain icon="message">提示按钮</FishButton>
+  <FishButton color="red" round plain icon="delete">删除按钮</FishButton>
+  </div>
+  <div style="margin-bottom:20px;">
+  <FishButton color="blue" round plain icon="search"></FishButton>
+  <FishButton color="green" round plain icon="edit"></FishButton>
+  <FishButton color="gray" round plain icon="check"></FishButton>
+  <FishButton color="yellow" round plain icon="message"></FishButton>
+  <FishButton color="red" round plain icon="delete"></FishButton>
+  </div>
+ `
+  })
+  .use(Button.default)
+  .mount('#app')
+
+</script>
+
+</body>
+</html>

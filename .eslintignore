@@ -8,4 +8,5 @@ coverage
 *.ttf
 src/index.ts
 dist
-
+*.json
+*.html
