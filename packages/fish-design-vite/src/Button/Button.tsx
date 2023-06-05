@@ -1,5 +1,6 @@
 import { defineComponent, PropType } from "vue";
 import Icon from "./components/icon";
+import "uno.css";
 
 export type PColor =
   | "black"
@@ -70,7 +71,8 @@ const cursor = (disabled: boolean) =>
   `cursor-${disabled ? "not-allowed" : "pointer"}`;
 
 export default defineComponent({
-  name: "FishButton",
+  // eslint-disable-next-line vue/multi-word-component-names, vue/no-reserved-component-names
+  name: "Button",
   props,
   setup(props, { slots }) {
     return () => (

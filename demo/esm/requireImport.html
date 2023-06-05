@@ -12,13 +12,13 @@
   <div id="app"></div>
   <script type="module">
     import { createApp } from "vue/dist/vue.esm-bundler.js"
-    import FishDesign , {FButton}from "../../dist/fish-design.mjs"
+    import FishDesign , {Button}from "../../dist/fish-design.mjs"
     createApp(
       {
         template:`
-      <FButton/>`
+      <Button/>`
       }
-    ).component(FButton.name,FButton)
+    ).component(Button.name,Button)
      .mount("#app")
       
   </script>
