@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+/// <reference types="vitest"
 
 import { UserConfig, defineConfig, Plugin } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -48,6 +48,10 @@ export const config = {
     // 支持tsx、jsx文件
     transformMode: {
       web: [/.[jt]sx$/],
+    },
+    coverage: {
+      provider: "c8",
+      reporter: ["json", "text", "html"],
     },
   },
 };
