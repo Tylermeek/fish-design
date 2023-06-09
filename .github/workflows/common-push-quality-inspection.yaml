@@ -1,4 +1,4 @@
-name: CI
+name: common-push-quality-inspection
 on:
   push:
     branches:
