@@ -1,0 +1,30 @@
+
+name: Publish @tyler_the_duck/fish-design-create-app-cli To Npm
+
+on:
+  push:
+    branches:
+    - publish-fish-design-create-app-cli
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    name: "publish npm"
+
+    environment: npm
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 6.0.2
+    - name: Install modules
+      run: pnpm install
+    - name: Build
+      run: npm run build
+    - name: "Publish to the npm registry"
+      uses: JS-DevTools/npm-publish@v2
+      with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: "packages/create-fish-app-cli"
