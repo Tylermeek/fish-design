@@ -1,5 +1,5 @@
 {
-  "name": "fish-design-monorepo",
+  "name": "fish-design-vite",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
