@@ -1,6 +1,6 @@
 {
   "name": "fish-design-vite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
