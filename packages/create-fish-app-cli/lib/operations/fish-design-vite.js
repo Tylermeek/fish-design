@@ -11,7 +11,7 @@ const run = async function () {
     {
       type: "input",
       message: "请输入项目的名称",
-      name:"name",
+      name: "name",
     },
   ]);
 
@@ -21,13 +21,13 @@ const run = async function () {
   await clone("Tylermeek/fish-design-app-js-template", name);
 
   // 生成路由定义
-  compile({
-    name
-  },
-  `./${name}/package.json`,
-  `./${name}/template/package.hbs.json`
-  )
-
+  compile(
+    {
+      name,
+    },
+    `./${name}/package.json`,
+    `./${name}/template/package.hbs.json`
+  );
 
   log(
     `😍 安装完成
@@ -46,16 +46,15 @@ npm run dev
  * @param filePath 目标文件路径
  * @param templatePath 模板文件路径
  */
-function compile(meta, filePath, templatePath){
-    if(existsSync(templatePath)){
-        const content = readFileSync(templatePath).toString()
-        const result = handlebars.compile(content)(meta)
-        writeFileSync(filePath,result)
-        log(`✅ ${filePath} 模板修改完成`)
-    } else{
-        log(`☠️ ${filePath} 模板修改出错`)
-
-    }
+function compile(meta, filePath, templatePath) {
+  if (existsSync(templatePath)) {
+    const content = readFileSync(templatePath).toString();
+    const result = handlebars.compile(content)(meta);
+    writeFileSync(filePath, result);
+    log(`✅ ${filePath} 模板修改完成`);
+  } else {
+    log(`☠️ ${filePath} 模板修改出错`);
+  }
 }
 
 export default run;
