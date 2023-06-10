@@ -21,8 +21,6 @@ jobs:
         version: 6.0.2
     - name: Install modules
       run: pnpm install
-    - name: Build
-      run: npm run build
     - name: "Publish to the npm registry"
       uses: JS-DevTools/npm-publish@v2
       with:
