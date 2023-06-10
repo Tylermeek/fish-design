@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
-import clone from "../utils/clone";
+import clone from "../utils/clone.js";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import handlebars from "handlebars";
 
@@ -11,21 +11,21 @@ const run = async function () {
     {
       type: "input",
       message: "请输入项目的名称",
-      name,
+      name:"name",
     },
   ]);
 
   log(`🏃 ‍创建项目:${name}`);
 
   // 远程克隆项目
-  await clone("github:Tylermeek/fish-design-app-js-template", name);
+  await clone("Tylermeek/fish-design-app-js-template", name);
 
   // 生成路由定义
   compile({
     name
   },
   `./${name}/package.json`,
-  `./${name}/template/package.json`
+  `./${name}/template/package.hbs.json`
   )
 
 
