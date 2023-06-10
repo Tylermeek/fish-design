@@ -1,4 +1,4 @@
-name: Publish @tyler_the_duck/fish-design To Npm
+name: Publish fish-design-vite To Npm
 
 on:
   push:

@@ -1,10 +1,10 @@
 
-name: Publish @tyler_the_duck/fish-design-create-app-cli To Npm
+name: Publish fish-design-cli To Npm
 
 on:
   push:
     branches:
-    - publish-fish-design-create-app-cli
+    - publish-fish-design-cli
 
 jobs:
   publish:

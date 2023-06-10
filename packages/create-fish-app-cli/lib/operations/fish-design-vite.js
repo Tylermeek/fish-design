@@ -18,7 +18,7 @@ const run = async function () {
   log(`🏃 ‍创建项目:${name}`);
 
   // 远程克隆项目
-  await clone("github:fish-design/fish-design-app-js-template", name);
+  await clone("github:Tylermeek/fish-design-app-js-template", name);
 
   // 生成路由定义
   compile({
