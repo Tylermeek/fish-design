@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm --filter fish-design-vite run test:run
+echo ====代码单元测试====
+cd packages/fish-design-vite
+pnpm  run test:run

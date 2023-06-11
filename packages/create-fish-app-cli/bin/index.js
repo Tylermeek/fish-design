@@ -48,7 +48,7 @@ async function query() {
   const choosed = await inquirer.prompt(choose);
   if (choosed.operation === "退出") return;
   const { default: op } = await import(
-    `../lib/operations/${choices[choosed.operation]}`
+    `../lib/operations/${choices[choosed.operation]}.js`
   );
   await op();
 }

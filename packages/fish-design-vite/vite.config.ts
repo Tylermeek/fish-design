@@ -4,6 +4,8 @@ import { UserConfig, defineConfig, Plugin } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import Unocss from "./config/unocss";
+import dts from "vite-plugin-dts";
+
 const rollupOptions = {
   external: ["vue", "vue-router"],
   output: {
@@ -21,6 +23,12 @@ export const config = {
       // options are passed on to @vue/babel-plugin-jsx
     }),
     Unocss() as Plugin[],
+    // 类型导出
+    dts({
+      outputDir: "./dist/types", // 输出目录
+      insertTypesEntry: false, // 插入ts入口
+      copyDtsFiles: true, // 将源码里的类型文件导入dist 目录
+    }),
   ],
 
   // 添加库模式配置
