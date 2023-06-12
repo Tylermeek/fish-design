@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "outDir": "./dist/types",
     "skipLibCheck": true, /* 跳过声明文件的类型检查 */
-    "allowSyntheticDefaultImports": true, /* 允许import 无默认导出的文件 */
     "jsx": "preserve" /* 实现支持ts编写jsx语法 */
   },
   "include": ["./**/*.*", "./src/shims-vue.d.ts"],
-  "exclude": ["node_modules"],
-  "esModuleInterop": true,
+  "exclude": ["node_modules","./dist/**/*" ],
+  "esModuleInterop": false,
   "allowSyntheticDefaultImports": "true",
   "allowImportingTsExtensions": "true"
 }

@@ -26,6 +26,12 @@ const buildAll = async () => {
 
   generateDTS(path.resolve(baseOutDir, "fish-design.mjs"));
 
+  // 复制readme文档
+  fs.copyFileSync(
+    path.resolve("./README.md"),
+    path.resolve(baseOutDir, `README.md`)
+  );
+
   // 遍历组件单独打包
   const componentsDir = fs.readdirSync(srcDir).filter((name) => {
     // 过滤出包含index.ts的文件夹
