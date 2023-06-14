@@ -63,9 +63,9 @@ const buildAll = async () => {
     fs.outputFile(
       path.resolve(outDir, `package.json`),
       `{
-        "name": "smarty-ui-vite/${name}",
-        "main": "index.umd.js",
-        "module": "index.umd.js"
+        "name": "fish-design-vite/${name}",
+        "main": "${name}.umd.js",
+        "module": "${name}.umd.js"
       }`,
       "utf-8"
     );

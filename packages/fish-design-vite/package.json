@@ -1,6 +1,6 @@
 {
   "name": "fish-design-vite",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
