@@ -1,10 +1,11 @@
 export * from './types/src/entry'
 import FishDesign from './types/src/entry'
 export default FishDesign
-declare module 'vue' {
-   export interface GlobalComponents {
-       {{#each components}}
-           {{name}}: typeof import("./types/src/entry").{{component}},
-       {{/each}}
-   }
+
+declare module "vue" {
+  export interface GlobalComponents {
+    {{#each components}}
+      {{name}}: typeof import("./types/src/entry").{{component}},
+    {{/each}}
+  }
 }

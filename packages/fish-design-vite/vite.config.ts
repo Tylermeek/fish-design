@@ -9,6 +9,7 @@ import dts from "vite-plugin-dts";
 const rollupOptions = {
   external: ["vue", "vue-router"],
   output: {
+    exports: "named",
     globals: {
       vue: "Vue",
     },

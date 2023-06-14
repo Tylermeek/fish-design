@@ -3,11 +3,15 @@ import { InlineConfig, UserConfig, build, defineConfig } from "vite";
 import * as path from "path";
 import * as fs from "fs-extra";
 import { generateDTS } from "./type";
-// import { pathToFileURL } from "url";
+import chalk from "chalk";
+
+const log = (...args) => console.log(chalk.green(...args));
 
 const buildAll = async () => {
   // 全量打包
+  log("🚀 开始全量打包");
   await build();
+  log("👌 全量打包成功");
 
   // 定义基本路径
   const srcDir = path.resolve(__dirname, "../src/");
@@ -26,12 +30,14 @@ const buildAll = async () => {
 
   generateDTS(path.resolve(baseOutDir, "fish-design.mjs"));
 
+  log("📃 复制README.md");
   // 复制readme文档
   fs.copyFileSync(
     path.resolve("./README.md"),
     path.resolve(baseOutDir, `README.md`)
   );
 
+  log("📦 开始单独打包");
   // 遍历组件单独打包
   const componentsDir = fs.readdirSync(srcDir).filter((name) => {
     // 过滤出包含index.ts的文件夹
@@ -43,15 +49,15 @@ const buildAll = async () => {
     const outDir = path.resolve(baseOutDir, name);
     const custom = {
       lib: {
-        entry: path.resolve(srcDir, name),
+        entry: path.resolve(srcDir, name) + "/index.ts",
         name,
-        fileName: "index",
+        fileName: name,
         formats: ["es", "umd"],
       },
       outDir,
     };
-
-    Object.assign(config.build, custom); // 结合配置
+    log(custom.lib.entry);
+    config.build = Object.assign(config.build, custom); // 结合配置
     await build(defineConfig(config as UserConfig) as InlineConfig);
     // 生成定制package.json
     fs.outputFile(
@@ -64,6 +70,7 @@ const buildAll = async () => {
       "utf-8"
     );
   }
+  log("👌 单独打包成功");
 };
 
 // 执行构建打包
