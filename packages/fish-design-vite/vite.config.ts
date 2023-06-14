@@ -18,11 +18,11 @@ const rollupOptions = {
 
 export const config = {
   plugins: [
-    vue(),
+    vue() as Plugin,
     // 添加JSX插件
     vueJsx({
       // options are passed on to @vue/babel-plugin-jsx
-    }),
+    }) as Plugin,
     Unocss() as Plugin[],
     // 类型导出
     dts({
