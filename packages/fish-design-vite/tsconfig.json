@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
       "declaration": true, /* 生成相关的 '.d.ts' 文件。 */
-      "declarationDir": "../dist/types", /* '.d.ts' 文件输出目录 */
+      "declarationDir": "./dist/types", /* '.d.ts' 文件输出目录 */
       "skipLibCheck": true,
       "jsx": "preserve",
   },
@@ -10,7 +10,8 @@
       "src/shims-vue.d.ts",
   ],
   "exclude": [
-      "node_modules"
+      "node_modules",
+      "**/__tests__/**"
   ],
   "esModuleInterop": false,
   "allowSyntheticDefaultImports": true //允许从没有默认导出的模块引入

@@ -2,8 +2,8 @@ import { config } from "../vite.config";
 import { InlineConfig, UserConfig, build, defineConfig } from "vite";
 import * as path from "path";
 import * as fs from "fs-extra";
-import { generateDTS } from "./type";
 import chalk from "chalk";
+const child_process = require("child_process");
 
 const log = (...args) => console.log(chalk.green(...args));
 
@@ -17,18 +17,22 @@ const buildAll = async () => {
   const srcDir = path.resolve(__dirname, "../src/");
   const baseOutDir = config.build.outDir;
 
-  // 导出dts文件
   // 复制package.json文件
   const packageJSON = require("../package.json");
   packageJSON.main = "fish-design.umd.js";
   packageJSON.module = "fish-design.mjs";
-  packageJSON.types = "fish-design.d.ts";
+  packageJSON.types = "global.d.ts";
   await fs.outputFile(
     path.resolve(baseOutDir, `package.json`),
     JSON.stringify(packageJSON, null, 2)
   );
 
-  generateDTS(path.resolve(baseOutDir, "fish-design.mjs"));
+  // generateDTS(path.resolve(baseOutDir, "fish-design.mjs"));
+  try {
+    child_process.execSync(`pnpm run build:components:dts`);
+  } catch (err) {
+    console.log("error", err);
+  }
 
   log("📃 复制README.md");
   // 复制readme文档
