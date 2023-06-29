@@ -22,9 +22,10 @@ export const config = {
     // 添加JSX插件
     vueJsx({
       // options are passed on to @vue/babel-plugin-jsx
+    }),
     UnoCSS({
       configFile: "./config/options/uno.config.ts",
-    }) as Plugin[]
+    }) as Plugin[],
     // 类型导出
     dts({
       outputDir: "./dist/types", // 输出目录
