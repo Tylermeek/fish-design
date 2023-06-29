@@ -9,5 +9,6 @@
   "include": ["./**/*.*", "./src/shims-vue.d.ts"],
   "exclude": ["node_modules","./dist/**/*" ],
   "esModuleInterop": false,
-  "allowSyntheticDefaultImports": true //允许从没有默认导出的模块引入
+  "allowSyntheticDefaultImports": true, //允许从没有默认导出的模块引入
+  "allowImportingTsExtensions":true
 }

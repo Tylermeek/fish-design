@@ -3,7 +3,7 @@
 import { UserConfig, defineConfig, Plugin } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
-import Unocss from "./config/options/uno.config";
+import UnoCSS from "unocss/vite";
 import dts from "vite-plugin-dts";
 
 const rollupOptions = {
@@ -23,7 +23,9 @@ export const config = {
     vueJsx({
       // options are passed on to @vue/babel-plugin-jsx
     }),
-    Unocss() as Plugin[],
+    UnoCSS({
+      configFile: "./config/options/uno.config.ts",
+    }) as Plugin[],
     // 类型导出
     dts({
       outputDir: "./dist/types", // 输出目录
