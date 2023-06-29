@@ -1,7 +1,12 @@
 import { defineConfig } from "vite";
 import vueJsx from "@vitejs/plugin-vue-jsx";
-import Unocss from "../config/unocss";
+import UnoCSS from "unocss/vite";
 
 export default defineConfig({
-  plugins: [vueJsx(), Unocss()],
+  plugins: [
+    vueJsx(),
+    UnoCSS({
+      configFile: "./config/options/uno.config.ts",
+    }),
+  ],
 });

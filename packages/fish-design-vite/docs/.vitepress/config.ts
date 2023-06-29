@@ -8,6 +8,7 @@ const sidebar = {
   ],
 };
 const config = {
+  title: 'Fish Design',
   themeConfig: {
     sidebar,
   },

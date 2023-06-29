@@ -33,6 +33,7 @@ export const safelist: string[] = [
   ...colors.map((v) => `bg-${v}-500`),
   ...colors.map((v) => `bg-${v}-700`),
   ...colors.map((v) => `hover:bg-${v}-500`),
+  ...colors.map((v) => `hover:bg-${v}-300`),
   ...colors.map((v) => `text-${v}`),
   ...colors.map((v) => `text-${v}-500`),
   ...colors.map((v) => `hover:text-${v}-300`),

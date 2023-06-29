@@ -84,19 +84,3 @@
 ```
 :::
 
-## 自定义颜色按钮
-
-支持自定义颜色按钮
-
-:::demo color属性支持设置	16色 我们将自动计算按钮处于 hover 和 active 状态时的颜色。
-
-```vue
-<template>
- <div class="flex flex-row">
-  <Button color="#626aef" >按钮</Button>
-  <Button color="#626aef" plain>按钮</Button>
-  <Button color="#626aef" disabled>按钮</Button>
- </div>
-</template>
-```
-:::
