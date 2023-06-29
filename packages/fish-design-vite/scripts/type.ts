@@ -1,7 +1,10 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
-import handlebars from "handlebars";
+import * as handlebars from "handlebars";
 import { pathToFileURL } from "url";
+import chalk from "chalk";
+
+const log = (...args) => console.log(chalk.green(...args));
 /**
  * 获取组件列表
  * 通过解析entry.ts模块获取组件数据
@@ -33,7 +36,7 @@ function generateCode(meta, filePath, templatePath) {
     const result = handlebars.compile(content)(meta);
     writeFileSync(filePath, result);
   }
-  console.log(`🚀${filePath} 创建成功`);
+  log(`🚀 创建全局组件声明文件成功 ${filePath} `);
 }
 
 /**
@@ -41,11 +44,8 @@ function generateCode(meta, filePath, templatePath) {
  */
 
 export async function generateDTS(entryPath: any) {
-  //   console.log(entryPath);
-
   const template = resolve(__dirname, "./entry.d.ts.hbs");
   const dts = resolve(__dirname, entryPath.replace(".mjs", ".d.ts"));
-  //   console.log(dts);
 
   // 组件库数据
   const components = await getComponents(entryPath);
