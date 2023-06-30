@@ -3,6 +3,7 @@ import { InlineConfig, UserConfig, build, defineConfig } from "vite";
 import * as path from "path";
 import * as fs from "fs-extra";
 import chalk from "chalk";
+import { generateDTS } from "./type";
 const child_process = require("child_process");
 
 const log = (...args) => console.log(chalk.green(...args));
@@ -27,7 +28,7 @@ const buildAll = async () => {
     JSON.stringify(packageJSON, null, 2)
   );
 
-  // generateDTS(path.resolve(baseOutDir, "fish-design.mjs"));
+  generateDTS(path.resolve(baseOutDir));
   try {
     child_process.execSync(`pnpm run build:components:dts`);
   } catch (err) {
@@ -69,7 +70,8 @@ const buildAll = async () => {
       `{
         "name": "fish-design-vite/${name}",
         "main": "${name}.umd.js",
-        "module": "${name}.umd.js"
+        "module": "${name}.umd.js",
+        "types": "../types/${name}/index.d.ts"
       }`,
       "utf-8"
     );

@@ -1,4 +1,4 @@
-<p align="center"><img src="../asset/Fish_Design.png" /></p>
+<p align="center"><img src="../assets/Fish_Design.png" /></p>
 <h1 align="center">Fish Design</h1>
 <p>
   <a href="https://github.com/Tylermeek/fish-design/actions/workflows/common-push-quality-inspection.yaml">

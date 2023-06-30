@@ -30,11 +30,11 @@ async function getComponents(input: any) {
  * @param filePath 目标文件路径
  * @param templatePath 模板文件路径
  */
-function generateCode(meta, filePath, templatePath) {
+function generateCode(meta, filePath: string, templatePath) {
   if (existsSync(templatePath)) {
     const content = readFileSync(templatePath).toString();
     const result = handlebars.compile(content)(meta);
-    writeFileSync(filePath, result);
+    writeFileSync(`${filePath}/global.d.ts`, result);
   }
   log(`🚀 创建全局组件声明文件成功 ${filePath} `);
 }
@@ -45,10 +45,11 @@ function generateCode(meta, filePath, templatePath) {
 
 export async function generateDTS(entryPath: any) {
   const template = resolve(__dirname, "./entry.d.ts.hbs");
-  const dts = resolve(__dirname, entryPath.replace(".mjs", ".d.ts"));
+  const dts: string = resolve(__dirname, entryPath);
 
   // 组件库数据
-  const components = await getComponents(entryPath);
+  const components = await getComponents(resolve(entryPath, "fish-design.mjs"));
+  console.log(entryPath, dts);
 
   generateCode({ components }, dts, template);
 }

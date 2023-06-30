@@ -5,7 +5,6 @@ import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import UnoCSS from "unocss/vite";
 import dts from "vite-plugin-dts";
-
 const rollupOptions = {
   external: ["vue", "vue-router"],
   output: {
@@ -13,6 +12,8 @@ const rollupOptions = {
     globals: {
       vue: "Vue",
     },
+    // 资源文件名 css 图片等等
+    assetFileNames: "assets/[name].[ext]",
   },
 };
 
@@ -24,7 +25,7 @@ export const config = {
       // options are passed on to @vue/babel-plugin-jsx
     }),
     UnoCSS({
-      configFile: "./config/options/uno.config.ts",
+      configFile: "./config/uno.config.ts",
     }) as Plugin[],
     // 类型导出
     dts({
@@ -39,7 +40,6 @@ export const config = {
     rollupOptions,
     minify: "terser",
     sourcemap: true, // 输出单独的source文件以便debug
-    reportCompressedSize: true, // 生成压缩大小报告
     cssCodeSplit: true,
     lib: {
       entry: "./src/entry.ts",

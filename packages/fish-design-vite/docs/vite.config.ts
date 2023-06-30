@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     vueJsx(),
     UnoCSS({
-      configFile: "./config/options/uno.config.ts",
+      configFile: "../config/uno.config.ts",
     }),
   ],
 });
