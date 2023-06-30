@@ -6,8 +6,8 @@ import {
   presetIcons,
   UserConfig,
 } from "unocss";
-import { safelist } from "./safelist";
-import { rules } from "./rules";
+import { safelist } from "./options/safelist";
+import { rules } from "./options/rules";
 
 export default defineConfig({
   rules,
